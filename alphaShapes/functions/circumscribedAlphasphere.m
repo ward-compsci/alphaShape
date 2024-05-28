@@ -47,8 +47,12 @@ function centres = circumscribedAlphasphere(points,alpha)
 
     sol = solve(eqs, c);
 
+    centres = zeros([2 n]);
+    names = string(c);
 
-    centres = double(struct2array(sol));
+    for i = 1:n
+        centres(:,i) = sol.(names{i});
+    end
 
 
 end

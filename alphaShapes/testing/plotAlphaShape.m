@@ -1,4 +1,4 @@
-function plotAlphaShape(points,alphaShape)
+function plotAlphaShape(alphaShape,points)
 % PLOTALPHASHAPE Visualizes 2D or 3D alpha shapes.
 %
 %   PLOTALPHASHAPE(POINTS, ALPHASHAPE) plots the points and the corresponding 
@@ -28,6 +28,11 @@ function plotAlphaShape(points,alphaShape)
 %
 %   See also SCATTER, SCATTER3, PATCH, PLOT.
 
+    arguments
+        alphaShape
+        points = false
+    end
+
     numElements = numel(alphaShape);
     dims = sqrt(numel(alphaShape{1}));
     
@@ -35,8 +40,10 @@ function plotAlphaShape(points,alphaShape)
     hold on
 
     if dims == 2
-        scatter(points(:,1),points(:,2));
-    
+        if points ~= false
+            scatter(points(:,1),points(:,2));
+        end    
+        
         for i = 1:numElements
             simplex = alphaShape{i};
             
@@ -44,7 +51,9 @@ function plotAlphaShape(points,alphaShape)
         end
 
     elseif dims == 3
-        scatter3(points(:,1),points(:,2),points(:,3));
+        if points ~= false
+            scatter3(points(:,1),points(:,2),points(:,3));
+        end
         
         for i = 1:numel(alphaShape)
             simplex = alphaShape{i};

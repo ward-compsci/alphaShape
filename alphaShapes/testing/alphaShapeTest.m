@@ -9,7 +9,7 @@ alpha2D = .5;
 
 alphaShape2D = findAlphaShape(points2D,alpha2D);
 
-plotAlphaShape(points2D,alphaShape2D)
+plotAlphaShape(alphaShape2D,points2D)
 
 
 %% 3D
@@ -19,5 +19,5 @@ alpha3D = .3;
 
 alphaShape3D = findAlphaShape(points3D,alpha3D);
 
-plotAlphaShape(points3D,alphaShape3D)
+plotAlphaShape(alphaShape3D,points3D)
 
